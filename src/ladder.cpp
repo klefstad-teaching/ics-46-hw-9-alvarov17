@@ -8,6 +8,8 @@ void error(string word1, string word2, string msg)
 
 bool edit_distance_within(const std::string& str1, const std::string& str2, int d) // main algorithm
 {
+    if (str1 == str2) return true;
+
     int str1_len = str1.size();
     int str2_len = str2.size();
     int len_diff = str1_len - str2_len;
@@ -86,9 +88,15 @@ void load_words(set<string> & word_list, const string& file_name)
 
 void print_word_ladder(const vector<string>& ladder)
 {
-    for (string word : ladder)
+    if (ladder.size() == 0) cout << "No ladder found." << endl;
+    else 
     {
-        cout << word << " ";
+        cout << "Word ladder found: "
+        for (string word : ladder)
+        {
+            cout << word << " ";
+        }
+        cout << endl;
     }
 }
 
