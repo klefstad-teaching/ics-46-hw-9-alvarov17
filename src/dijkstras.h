@@ -25,6 +25,12 @@ struct Edge {
     }
 };
 
+struct MyComparator {
+    bool operator()(const pair<int, int>& a, const pair<int, int>& b) {
+        return a.first < b.first; // For min-heap (smaller elements have higher priority)
+    }
+};
+
 struct Graph : public vector<vector<Edge>> {
     int numVertices=0;
 };
