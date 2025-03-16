@@ -3,10 +3,10 @@
 int main()
 {
     Graph g;
-    file_to_graph("small.txt", g);
+    file_to_graph("largest.txt", g);
     vector<int> prev{g.numVertices, -1};
     vector<int> distances = dijkstra_shortest_path(g, 0, prev);
-    for (int i = 0; i < 6 ; ++i) {
+    for (int i = 0; i < 24 ; ++i) {
         vector<int> short_path = extract_shortest_path(distances, prev, i);
         print_path(short_path, distances[i]);
     }
