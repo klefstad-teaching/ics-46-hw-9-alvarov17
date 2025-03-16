@@ -44,13 +44,13 @@ vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& prev
     vector<int> distance(numVertices, INF);
     vector<bool> visited(numVertices, false);
     fill(previous.begin(), previous.end(), -1);
-    priority_queue< pair<int, int>, vector<pair<int, int>>, MyComparator > minHeap;
-    minHeap.push({0, source});
+    priority_queue<pair<int, int>, vector<pair<int, int>>, MyComparator> minHeap;
+    minHeap.push({source, 0});
     distance[source] = 0;
 
     while (!minHeap.empty())
     {
-        int current = minHeap.top().second;
+        int current = minHeap.top().first;
         minHeap.pop();
 
         if (visited[current]) continue;
@@ -63,7 +63,7 @@ vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& prev
             {
                 distance[v] = distance[current] + weight;
                 previous[v] = current;
-                minHeap.push({distance[v], v});
+                minHeap.push({v, distance[v]});
             }
         }
     }

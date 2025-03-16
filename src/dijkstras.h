@@ -27,7 +27,7 @@ struct Edge {
 
 struct MyComparator {
     bool operator()(const pair<int, int>& a, const pair<int, int>& b) {
-        return a.first < b.first; // For min-heap (smaller elements have higher priority)
+        return a.second < b.second;
     }
 };
 
